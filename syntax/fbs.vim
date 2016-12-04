@@ -62,7 +62,7 @@ syn region   fbsString     start=/"/ skip=/\\./ end=/"/
 " -----------------------------------------------------------------------------
 " Block
 
-syn region   fbsBlock      start="{" end="}" contains=fbsType,fbsMetaKeys,fbsParam,fbsBool,fbsInt,fbsOperator fold
+syn region   fbsBlock      start="{" end="}" contains=fbsType,fbsMetadata,fbsParam,fbsBool,fbsInt,fbsOperator fold
 syn region   fbsBlock      start="{" end="}" transparent fold
 
 " -----------------------------------------------------------------------------
