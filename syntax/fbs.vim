@@ -48,11 +48,11 @@ syn keyword  fbsType  contained long ulong double
 syn keyword  fbsType  contained string
 
 " -----------------------------------------------------------------------------
-" Meta
+" Attributes
 
-syn keyword  fbsMetaKeys   contained id deprecated required original_order force_align bit_flags nested_flatbuffer key
-syn cluster  fbsMetadata   contains=fbsMetaKeys
-syn region   fbsMetadata   start="(" skip="," end=")" keepend contains=@fbsMetadata
+syn keyword  fbsAttributes      contained id deprecated required original_order force_align bit_flags nested_flatbuffer key hash
+syn cluster  fbsAttributesData  contains=fbsAttributes
+syn region   fbsAttributesData  start="(" skip="," end=")" keepend contains=@fbsAttributes
 
 " -----------------------------------------------------------------------------
 " type
@@ -67,7 +67,7 @@ syn region   fbsString     start=/"/ skip=/\\./ end=/"/
 " -----------------------------------------------------------------------------
 " Block
 
-syn region   fbsBlock      start="{" end="}" contains=fbsType,fbsMetadata,fbsParam,fbsBool,fbsInt,fbsOperator fold
+syn region   fbsBlock      start="{" end="}" contains=fbsType,fbsAttributes,fbsParam,fbsBool,fbsInt,fbsOperator fold
 syn region   fbsBlock      start="{" end="}" transparent fold
 
 " -----------------------------------------------------------------------------
@@ -81,7 +81,7 @@ hi def link  fbsName       Function
 hi def link  fbsParam      Identifier
 
 hi def link  fbsType       Type
-hi def link  fbsMetaKeys   SpecialChar
+hi def link  fbsAttributes SpecialChar
 
 hi def link  fbsBool       Boolean
 hi def link  fbsInt        Number
