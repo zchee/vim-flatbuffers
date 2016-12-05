@@ -1,6 +1,11 @@
+" Copyright 2016 The vim-flatbuffers Authors. All rights reserved.
+" Use of this source code is governed by a BSD-style
+" license that can be found in the LICENSE file.
+
 " flatbuffers syntax file
+" File: syntax/fbs.vim
+" Maintainer: Koichi Shiraish <zchee.io@gmail.com>
 " Language:	fbs
-" Maintainer:	Koichi Shiraishi <zchee.io@gmail.com>
 
 if exists("b:current_syntax")
   finish
@@ -89,3 +94,5 @@ let b:current_syntax = "fbs"
 
 let &cpo = s:cpo_save
 unlet s:cpo_save
+
+" vim: sw=2 ts=2 et
