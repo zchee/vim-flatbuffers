@@ -2,10 +2,10 @@
 " Use of this source code is governed by a BSD-style
 " license that can be found in the LICENSE file.
 
-" flatbuffers syntax file
 " File: syntax/fbs.vim
 " Maintainer: Koichi Shiraish <zchee.io@gmail.com>
 " Language:	fbs
+
 
 if exists("b:current_syntax")
   finish
@@ -21,13 +21,14 @@ syn case match
 
 syn keyword  fbsTodo       contained TODO FIXME XXX BUG NOTE
 syn cluster  fbsComment    contains=fbsTodo
-syn region   fbsComment    start="//" skip="\\$" end="$" keepend contains=@fbsComment
+syn region   fbsComment    start="//" skip="\\$" end="$"  keepend contains=@fbsComment
+syn region   fbsDocument   start="///" skip="\\$" end="$" keepend contains=@fbsComment
 
 " -----------------------------------------------------------------------------
 " Syntax
 
 syn keyword  fbsSyntax     attribute include file_identifier file_extension
-syn keyword  fbsSyntax     namespace root_type
+syn keyword  fbsSyntax     namespace root_type rpc_service
 syn keyword  fbsStructure  union struct table enum nextgroup=fbsName skipwhite skipnl
 
 syn match    fbsName       /\w\+/ contained
@@ -50,9 +51,9 @@ syn keyword  fbsType  contained string
 " -----------------------------------------------------------------------------
 " Attributes
 
-syn keyword  fbsAttributes      contained id deprecated required original_order force_align bit_flags nested_flatbuffer key hash
-syn cluster  fbsAttributesData  contains=fbsAttributes
-syn region   fbsAttributesData  start="(" skip="," end=")" keepend contains=@fbsAttributes
+syn keyword  fbsAttributes      id deprecated required original_order force_align bit_flags nested_flatbuffer key hash
+syn cluster  fbsAttributesData  contains=@fbsAttributes
+syn region   fbsAttributesData  start="(" skip="," end=")" fold
 
 " -----------------------------------------------------------------------------
 " type
@@ -67,13 +68,13 @@ syn region   fbsString     start=/"/ skip=/\\./ end=/"/
 " -----------------------------------------------------------------------------
 " Block
 
-syn region   fbsBlock      start="{" end="}" contains=fbsType,fbsAttributes,fbsParam,fbsBool,fbsInt,fbsOperator fold
-syn region   fbsBlock      start="{" end="}" transparent fold
+syn region   fbsBlock      start="{" end="}" contains=fbsTodo,fbsComment,fbsType,fbsParam,fbsAttributes,fbsBool,fbsInt,fbsOperator transparent
 
 " -----------------------------------------------------------------------------
 
 hi def link  fbsTodo       Todo
 hi def link  fbsComment    Comment
+hi def link  fbsDocument   Comment
 
 hi def link  fbsSyntax     Statement
 hi def link  fbsStructure  Structure
@@ -81,7 +82,7 @@ hi def link  fbsName       Function
 hi def link  fbsParam      Identifier
 
 hi def link  fbsType       Type
-hi def link  fbsAttributes SpecialChar
+hi def link  fbsAttributes String
 
 hi def link  fbsBool       Boolean
 hi def link  fbsInt        Number
