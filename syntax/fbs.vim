@@ -51,7 +51,10 @@ syn keyword  fbsType  contained string
 " -----------------------------------------------------------------------------
 " Attributes
 
-syn keyword  fbsAttributes      id deprecated required original_order force_align bit_flags nested_flatbuffer key hash
+" <flatbuffers/idl.h>
+syn keyword  fbsAttributes      deprecated required key hash id force_align bit_flags
+syn keyword  fbsAttributes      original_order nested_flatbuffer csharp_partial streaming
+syn keyword  fbsAttributes      idempotent cpp_type cpp_ptr_type native_inline
 syn cluster  fbsAttributesData  contains=@fbsAttributes
 syn region   fbsAttributesData  start="(" skip="," end=")" fold
 
