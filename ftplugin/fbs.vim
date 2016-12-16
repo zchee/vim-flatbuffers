@@ -16,8 +16,11 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 
+setlocal comments=s1:/*,mb:*,ex:*/,://
 setlocal commentstring=//\ %s
 setlocal expandtab
+setlocal formatoptions-=t
+setlocal shiftwidth=2
 
 
 let b:undo_ftplugin = ""
