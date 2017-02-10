@@ -13,7 +13,7 @@ endif
 let b:did_indent = 1
 
 setlocal autoindent
-setlocal cindent
+setlocal nocindent
 setlocal nolisp
 
 let b:undo_indent = "setl cin<"
