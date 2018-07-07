@@ -38,13 +38,13 @@ syn match    fbsParam      /\<\w\+\ze\:/ contained
 " FieldType
 
 " 8 bit
-syn keyword  fbsType  contained byte ubyte bool
+syn keyword  fbsType  contained byte ubyte bool int8 uint8
 " 16 bit
-syn keyword  fbsType  contained short ushort
+syn keyword  fbsType  contained short ushort int16 uint16
 " 32 bit
-syn keyword  fbsType  contained int uint float
+syn keyword  fbsType  contained int uint float int32 uint32 float32
 " 64 bit
-syn keyword  fbsType  contained long ulong double
+syn keyword  fbsType  contained long ulong double int64 uint64 float64
 " string only hold UTF-8 or 7-bit ASCII
 syn keyword  fbsType  contained string
 
